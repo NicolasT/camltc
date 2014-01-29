@@ -54,7 +54,7 @@ let preemptive f t keys =
     let rec loop = function
       | [] -> Lwt.return ()
       | (x :: xs) ->
-            Lwt_preemptive.detach (fun () -> f x) () >>= fun _ ->
+            Lwt_preemptive.detach f x >>= fun _ ->
             loop xs
     in
     let ts = replicate t (fun () -> loop keys) in
