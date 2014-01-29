@@ -6,3 +6,4 @@ true: package(lwt.preemptive)
 <test.*{byte,native}> : is_main
 
 <camltc_bench.*>: threads, package(lwt), package(core_bench)
+<camltc_concurrent.*>: threads, package(lwt)
